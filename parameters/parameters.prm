@@ -1,0 +1,38 @@
+# Listing of Parameters
+# ---------------------
+
+# Problem specific parameters 
+include parameters/cooks.prm
+
+subsection Finite element system
+  # Displacement system polynomial order
+  set Polynomial degree = 1
+
+  # Gauss quadrature order
+  set Quadrature order  = 2
+end
+
+subsection Linear solver
+  # Linear solver iterations (multiples of the system matrix size)
+  set Max iteration multiplier = 1
+
+  # Linear solver residual (scaled by residual norm)
+  set Residual                 = 1e-5
+
+ # Preconditioner type
+ set Preconditioner type  = jacobi
+
+ # Preconditioner relaxation value
+ set Preconditioner relaxation  = 0.65
+
+  # Type of solver used to solve the linear system
+  set Solver type              = CG
+end
+
+subsection Postprocessing
+  # Write the data stored at the quadrature points
+  set Quadrature point postprocessing = false
+end
+
+
+

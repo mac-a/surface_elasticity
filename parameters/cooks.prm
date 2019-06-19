@@ -1,0 +1,69 @@
+# properties for 3d Cook's membrane
+
+subsection Geometry
+  # Input deck
+  set Input deck = meshes/cooks.inp 
+
+  # Global refinement level
+  set Global refinement   = 1
+end
+
+
+subsection Material properties volume
+  # Lame first parameter lambda
+  set Lames first parameter = 12e3
+
+  # Shear modulus mu
+  set Shear modulus   = 8e3
+end
+
+subsection Material properties surface
+  # Lame first parameter lambda
+  set Lames first parameter = 0
+
+  # Shear modulus mu
+  set Shear modulus   = 0
+  
+  # Boundary potential gamma
+  set Boundary potential   = 0
+end
+
+
+subsection BoundaryConditions
+ # Non homogeneous Dirichlet constraint
+ set Final displacement = 0
+ 
+ # Neumann traction
+ set traction x = 0
+ set traction y = 750
+ set traction z = 0
+ 
+ # Surface to apply the Neumann traction
+ set Neumann surface ID = 2
+ 
+ # Problem type
+ set Problem description = cooks
+end
+
+subsection Time
+  # End time
+  set End time       = 1
+  
+  # Time to impose surface tension
+  set Pre load time = 1
+
+  # Time step size
+  set Time step size = 0.1
+end
+
+
+subsection Nonlinear solver
+  # Number of Newton-Raphson iterations allowed
+  set Max iterations Newton-Raphson = 20
+  
+  # Solution error tolerance
+  set Tolerance solution        = 1.0e-10
+
+  # Force residual tolerance
+  set Tolerance residual               = 1.0e-8
+end

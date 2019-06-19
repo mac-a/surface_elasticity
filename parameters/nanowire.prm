@@ -1,0 +1,61 @@
+# properties for nanowire
+
+subsection Geometry
+  # Input deck
+  set Input deck = meshes/nanowire_coarse.inp 
+  # Global refinement level
+  set Global refinement   = 0
+end
+
+
+subsection Material properties volume
+  # Lame first parameter lambda
+  set Lames first parameter = 10e6
+
+  # Shear modulus mu
+  set Shear modulus   = 10e6
+end
+
+subsection Material properties surface
+  # Lame first parameter lambda
+  set Lames first parameter = 0
+
+  # Shear modulus mu
+  set Shear modulus   = 0
+  
+  # Boundary potential gamma
+  set Boundary potential   = 0
+end
+
+
+subsection BoundaryConditions
+ # Non homogeneous Dirichlet constraint
+ set Final displacement = 1
+ 
+ # Problem type
+ set Problem description = nanowire
+end
+
+subsection Time
+  # End time
+  set End time       = 1
+  
+  # Time to impose surface tension
+  set Pre load time = 1
+
+  # Time step size
+  set Time step size = 0.1
+end
+
+
+subsection Nonlinear solver
+  # Number of Newton-Raphson iterations allowed
+  set Max iterations Newton-Raphson = 20
+  
+  # Solution error tolerance
+  set Tolerance solution        = 1.0e-9
+
+  # Force residual tolerance
+  set Tolerance residual               = 1.0e-9
+end
+

@@ -1,0 +1,60 @@
+# properties for liquid bridge
+
+subsection Geometry
+  # Input deck
+  set Input deck = meshes/bridge.inp 
+
+  # Global refinement level
+  set Global refinement   = 0
+end
+
+
+subsection Material properties volume
+  # Lame first parameter lambda
+  set Lames first parameter = 0
+
+  # Shear modulus mu
+  set Shear modulus   = 10
+end
+
+subsection Material properties surface
+  # Lame first parameter lambda
+  set Lames first parameter = 0
+
+  # Shear modulus mu
+  set Shear modulus   = 0
+  
+  # Boundary potential gamma
+  set Boundary potential   = 100
+end
+
+
+subsection BoundaryConditions
+ # Non homogeneous Dirichlet constraint
+ set Final displacement = 0
+ 
+ set Problem description = bridge
+
+end
+
+subsection Time
+  # End time
+  set End time       = 1
+  
+  # Time to impose surface tension
+  set Pre load time = 1
+
+  # Time step size
+  set Time step size = 0.05
+end
+
+subsection Nonlinear solver
+  # Number of Newton-Raphson iterations allowed
+  set Max iterations Newton-Raphson = 20
+  
+  # Solution error tolerance
+  set Tolerance solution        = 1.0e-10
+
+  # Force residual tolerance
+  set Tolerance residual               = 1.0e-9
+end
